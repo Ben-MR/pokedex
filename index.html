@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/template.css">
+
+    <script src="./script/template.js"></script>
+    <script src="./script.js"></script>
+
 </head>
-<body>
-    
+<body onload="init()">
+<div class="content-body">  
+    <header class="header">        
+        <div class="header-content widescreen">
+            <div class="header-content-left">
+                <img class="header-image" src="./assets/image/pokeball.png" alt="">
+                <span class="header-text">Pokedex</span>
+            </div>
+            <input class="search-field" type="text">
+        </div>    
+    </header>
+
+    <div class="content-middle">
+        <div class="poke-container" id="pokeContainer">
+            
+ 
+        </div>
+    </div>
+
+
+    <section class="footer">
+        <div class="footer-content widescreen">
+            <span>&#x00A9 Benjamin Rieck</span>
+            <a href="https://www.flaticon.com/de/kostenlose-icons/pokemon" title="pokémon Icons">Pokémon Icons erstellt von Freepik - Flaticon</a>
+            
+        </div>
+    </section> 
+</div>      
 </body>
 </html>

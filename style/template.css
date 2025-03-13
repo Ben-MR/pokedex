@@ -1,0 +1,45 @@
+/* titillium-web-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/titillium-web-v17-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+html {
+    scroll-behavior: smooth;
+    
+  }
+
+body {
+    margin: 0;
+    font-family: 'Titillium Web';
+    background-color: rgb(30, 46, 50);;
+}
+
+.content-body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.widescreen {
+    max-width: 1920px;
+    margin: auto;
+}
+
+.header {
+    background-color: rgb(70, 131, 149);
+    width: 100%;
+}
+
+.footer {
+    background-color: rgb(70, 131, 149);
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
