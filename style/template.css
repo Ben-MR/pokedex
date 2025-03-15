@@ -15,7 +15,8 @@ html {
 body {
     margin: 0;
     font-family: 'Titillium Web';
-    background-color: rgb(30, 46, 50);;
+    background-color: rgb(30, 46, 50);
+   
 }
 
 .content-body {
@@ -126,6 +127,15 @@ body {
 
 .electric {
     background-image: url('/assets/image/Battrio_Electric_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.fairy {
+    background-image: url('/assets/image/Fairy_icon_HOME3.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;

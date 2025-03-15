@@ -11,7 +11,7 @@
     <script src="./script.js"></script>
 
 </head>
-<body onload="init()">
+<body onload="init2()">
 <div class="content-body">  
     <header class="header">        
         <div class="header-content widescreen">
@@ -22,11 +22,16 @@
             <input class="search-field" type="text">
         </div>    
     </header>
-
+    <div id="loadingImageContainer" class="loading-image-container">
+        <img class="loading-image" src="./assets/image/pokeball.png" alt="">
+        <span>Loading...</span>
+        <span  id="loadingFailure"></span>
+    </div>
+    
    
     <div id="contentMiddle" class="content-middle">
         <div class="poke-container" id="pokeContainer"></div>
-        <button onclick="test()" class="load-button">mehr laden</button>
+        <button onclick="loadMore()" class="load-button">mehr laden</button>
     </div>
     
 
