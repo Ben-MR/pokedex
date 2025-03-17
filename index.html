@@ -7,6 +7,8 @@
     <link rel="icon" type="image/png" href="./assets/image/Fav.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./style/template.css">
+    <link rel="stylesheet" href="./style/overlay-card.css">
+    <link rel="stylesheet" href="./style/type-styles.css">
 
     <script src="./script/template.js"></script>
     <script src="./script.js"></script>
@@ -24,7 +26,13 @@
         </div>    
     </header>
 
-    
+    <div onclick="toggleOverlay()" id="overlay" class="d-none overlay-box "></div> 
+       
+
+
+
+           
+       
    
     <div id="contentMiddle" class="content-middle">
         <div class="poke-container" id="pokeContainer"></div>
@@ -39,10 +47,8 @@
         <span>Loading...</span>    
         </div>
         <span class="loading-failure" id="loadingFailure"></span>    
-    </div>
+    </div> 
     
-    
-
 
     <section class="footer">
         <div class="footer-content widescreen">

@@ -1,0 +1,113 @@
+.overlay-box{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;     
+}
+
+.overlay-content-box {
+    width: 350px;
+    border-radius: 15px;
+}
+
+.overlaypicture-box {
+    text-align: center;
+}
+
+.poke-image-overlay {
+    margin-top: 10px;
+}
+
+.overlay-number-name {
+    background-color: rgb(30, 46, 50);
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: aliceblue;
+    align-items: center;   
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.overlay-type-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;   
+    background-color: rgb(30, 46, 50);
+}
+
+.test-picture {
+    width: 45px;
+    height: auto;
+    margin: 5px;
+}
+
+.overlay-stats-categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: aliceblue;
+    background-color: rgb(61, 96, 107);     
+}
+
+.overlay-stats-categories-name {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    cursor: pointer;   
+}
+
+.overlay-stats-categories-name:hover {
+    border-bottom: 2px;
+    border-color: aliceblue;
+    border-bottom-style: solid;    
+}
+
+.overlay-stats-categories-border {
+    width: 1px;
+    background-color: rgb(30, 46, 50);
+}
+
+.overlay-stats {
+    height: 250px;
+    background-color: rgb(58, 78, 83);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.overlay-stats-general {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    color: aliceblue;
+    text-align: left;
+}
+
+.overlay-stats-general-table {
+    margin-top: 20px;    
+}
+
+.overlay-stats-general-table-row {
+    font-weight: normal;
+}
+
+.overlay-stats-stats {
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    color: aliceblue;
+    text-align: left;
+}
+
+.overlay-stats-stats-table {
+    margin: 20px 0 0 30px ;    
+}
