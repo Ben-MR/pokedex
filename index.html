@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
+    <link rel="icon" type="image/png" href="./assets/image/Fav.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./style/template.css">
 
@@ -11,7 +12,7 @@
     <script src="./script.js"></script>
 
 </head>
-<body onload="init2()">
+<body onload="init()">
 <div class="content-body">  
     <header class="header">        
         <div class="header-content widescreen">
@@ -22,17 +23,24 @@
             <input class="search-field" type="text">
         </div>    
     </header>
-    <div id="loadingImageContainer" class="loading-image-container">
-        <img class="loading-image" src="./assets/image/pokeball.png" alt="">
-        <span>Loading...</span>
-        <span  id="loadingFailure"></span>
-    </div>
+
     
    
     <div id="contentMiddle" class="content-middle">
         <div class="poke-container" id="pokeContainer"></div>
-        <button onclick="loadMore()" class="load-button">mehr laden</button>
+        <div  class="load-more-container">
+            <button id="loadMoreContainer" onclick="loadMore()" class="load-button d-none">mehr laden</button>
+        </div>
     </div>
+
+    <div class="loading-image-container">
+        <div id="loadingImageContainer" class="loading-image-container d-none">
+        <img class="loading-image" src="./assets/image/pokeball.png" alt="">
+        <span>Loading...</span>    
+        </div>
+        <span class="loading-failure" id="loadingFailure"></span>    
+    </div>
+    
     
 
 

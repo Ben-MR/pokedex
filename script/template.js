@@ -12,7 +12,8 @@ function showPokeCard(pokeData, index) {
                     </div>
                     <div id="typeContainer-${index}" class="type-container">
                         <div class="${pokemon[index].type1}"></div>
-                        <div class="${pokemon[index].type2}"></div>                       
+                        <div class="${pokemon[index].type2}"></div>
+                       
                     </div>
                 </div>
             </div>  

@@ -143,4 +143,77 @@ body {
     margin: 10px;
 }
 
+.fighting {
+    background-image: url('/assets/image/Battrio_Fighting_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.psychic {
+    background-image: url('/assets/image/Battrio_Psychic_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.dragon {
+    background-image: url('/assets/image/Battrio_Dragon_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.ghost {
+    background-image: url('/assets/image/Battrio_Ghost_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.dark {
+    background-image: url('/assets/image/Battrio_Dark_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.rock {
+    background-image: url('/assets/image/Battrio_Rock_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.ice {
+    background-image: url('/assets/image/Battrio_Ice_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.steel {
+    background-image: url('/assets/image/Battrio_Steel_type.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+
 
