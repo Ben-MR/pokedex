@@ -133,6 +133,18 @@
     cursor: pointer;
 }
 
+.overlay-evolution {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.overlay-evolution-arrow {
+    width: 30px;
+}
+
 @media (max-width: 400px) {
     .overlay-content-box {
         width: 270px;

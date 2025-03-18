@@ -46,7 +46,7 @@ function showOverlay(index) {
                         </div>  
                         <div class="overlay-stats-categories-border"></div>       
                         <div id="categorieEvolution" class="overlay-stats-categories-name">
-                            <span>Evolution</span>
+                            <span onclick="renderEvolution('${index}')">Evolution</span>
                         </div>
                     </div>
                 <div id="overlayStats" class="overlay-stats"></div>
@@ -93,7 +93,7 @@ function showOverlayGeneral(index) {
 
 function showOverlayStats(index) {
     return `
-                        <div class="overlay-stats-stats">
+                    <div class="overlay-stats-stats">
                         <table class="overlay-stats-stats-table">
                             <tr>
                                 <th class="overlay-stats-general-table-row">HP</th>
@@ -123,4 +123,16 @@ function showOverlayStats(index) {
                     </div>
     
     `
+}
+
+function showOverlayEvolution(index) {
+    return `
+            <div class="overlay-evolution">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon[index].id}.png" alt="">
+                <img class="overlay-evolution-arrow" src="./assets/image/arrow-right.png" alt="">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon[index].id + 1}.png" alt="">
+                <img class="overlay-evolution-arrow" src="./assets/image/arrow-right.png" alt="">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon[index].id + 2}.png" alt="">
+            </div>        
+            `
 }

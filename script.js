@@ -1,13 +1,16 @@
 let pokemon = [];
+let evolutionData = [];
+let allNames = [];
 let offset = 0; 
 let limit = 20;
+let visiblePokemonCount = 20; 
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const BASE_URL_SPECIES = "https://pokeapi.co/api/v2/pokemon-species/"
 
 async function init() {
     try{
     OverlaySpinnerOn();
-    await fetchPokeDataSpecies();
+    await fetchPokeDataComplete();    
     OverlaySpinnerOff();
     LoadMoreOn ();
     }
@@ -21,8 +24,8 @@ async function init() {
 }
 
 
-async function fetchPokeDataSpecies() {    
-    let responseSpecies = await fetch(`${BASE_URL}?limit=${limit}&offset=${offset}`);
+async function fetchPokeDataComplete() {    
+    let responseSpecies = await fetch(`${BASE_URL}?limit=1000&offset=${offset}`);
     let responseAsJsonSpecies = await responseSpecies.json();        
     for (let index = offset; index < responseAsJsonSpecies.results.length + offset; index++) {
         await renderPokedex(index);
@@ -43,13 +46,25 @@ async function renderPokedex(index) {
             name : pokeData.names[5].name,
             type1 : pokeData2.types[0].type.name,
             type2: pokeData2.types.length > 1 ? pokeData2.types[1].type.name : null,
-            backgroundcolor: pokeData.color.name
+            backgroundcolor: pokeData.color.name,
+            evolutionChain : pokeData.evolution_chain.url
             }
         )
-        setTimeout(function() {
-            pokecard.innerHTML += showPokeCard(pokeData, index);
-        }, 500);    
-}     
+        if (index < offset + 20) {
+            setTimeout(function() {
+                pokecard.innerHTML += showPokeCard(pokeData, index);
+            }, 500);
+        }   
+}   
+
+function renderNextPokemonList() {
+    let pokecard = document.getElementById("pokeContainer");
+    pokecard.innerHTML = ""; 
+
+    for (let i = 0; i < visiblePokemonCount; i++) {
+        pokecard.innerHTML += showPokeCard(pokemon[i], i);
+    }
+}
 
 async function renderOverlayGeneral(index) {       
     let response = await fetch(BASE_URL_SPECIES + (offset + index - offset + 1)); 
@@ -70,8 +85,6 @@ async function renderOverlayGeneral(index) {
 }   
 
 async function renderOverlayStats(index) {
-    let response = await fetch(BASE_URL_SPECIES + (offset + index - offset + 1)); 
-    let pokeData = await response.json();
     let response2 = await fetch(BASE_URL + (offset + index - offset + 1)); 
     let pokeData2 = await response2.json();     
     let stats = {
@@ -90,7 +103,6 @@ async function renderStats(index){
     pokecard.innerHTML = "";  
     pokecard.innerHTML = showOverlayStats(index);
     setActiveTab("categorieStats");
-
 }
 
 async function renderGeneral(index){
@@ -98,6 +110,13 @@ async function renderGeneral(index){
     pokecard.innerHTML = "";  
     pokecard.innerHTML = showOverlayGeneral(index);
     setActiveTab("categorieGeneral");
+}
+
+async function renderEvolution(index) {
+    let pokecard = document.getElementById("overlayStats");  
+    pokecard.innerHTML = "";  
+    pokecard.innerHTML = showOverlayEvolution(index);
+    setActiveTab("categorieEvolution");
 }
 
 function setActiveTab(activeId) {
@@ -124,10 +143,12 @@ function formatNumbers(inputNumber) {
     return replace;
 }
 
-async function loadMore() {
-    offset = offset + 20;	
-    init()   
-}   
+function loadMore() {
+    if (visiblePokemonCount < pokemon.length) {
+        visiblePokemonCount += 20; 
+        renderNextPokemonList(); 
+    }
+}
 
 function LoadMoreOn () {
     let spinner = document.getElementById('loadMoreContainer');
@@ -162,7 +183,7 @@ async function next(currentIndex) {
     currentIndex = currentIndex + 1;
     console.log(currentIndex);
     
-    if (currentIndex + 1 > pokemon.length) {
+    if (currentIndex + 1 > visiblePokemonCount) {
         try {
             await loadMore();
         } catch (error) {
@@ -183,3 +204,5 @@ async function previous(currentIndex) {
     }
 }
 
+
+console.log(pokemon); 
