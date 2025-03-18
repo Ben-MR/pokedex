@@ -20,6 +20,9 @@
 
 .poke-image-overlay {
     margin-top: 10px;
+    height: 250px;
+    width: 280px;
+    
 }
 
 .overlay-number-name {
@@ -72,6 +75,11 @@
     border-bottom-style: solid;    
 }
 
+.active-tab {
+    border-bottom: 3px solid red;  
+    pointer-events: none;  
+}
+
 .overlay-stats-categories-border {
     width: 1px;
     background-color: rgb(30, 46, 50);
@@ -110,4 +118,29 @@
 
 .overlay-stats-stats-table {
     margin: 20px 0 0 30px ;    
+}
+
+.container-arrows-right-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px 0 10px 0;
+}
+
+.arrows-right-left {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+}
+
+@media (max-width: 400px) {
+    .overlay-content-box {
+        width: 270px;
+    }
+
+    .poke-image-overlay {
+        margin-top: 10px;
+        width: 200px;
+        height: auto;
+    }
 }

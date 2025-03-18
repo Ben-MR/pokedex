@@ -1,0 +1,10 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+	<title>double_arrow_circle</title>
+	<style>
+		.s0 { fill: none;stroke: #000000;stroke-width: 5 } 
+		.s1 { fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 5 } 
+	</style>
+	<path fill-rule="evenodd" class="s0" d="m50 5c24.9 0 45 20.1 45 45 0 24.9-20.1 45-45 45-24.9 0-45-20.1-45-45 0-24.9 20.1-45 45-45z"/>
+	<path fill-rule="evenodd" class="s1" d="m65 70l-20-20 20-20"/>
+	<path fill-rule="evenodd" class="s1" d="m50 70l-20-20 20-20"/>
+</svg>
