@@ -22,7 +22,11 @@
                 <img class="header-image" src="./assets/image/pokeball.png" alt="">
                 <span class="header-text">Pokedex</span>
             </div>
-            <input class="search-field" type="text">
+            <div class="search-container">  
+                <input id="searchField" class="search-field" type="search" placeholder="Suchen...">
+                <img onclick="pokeSearch()" class="lupe" src="./assets/image/loupe_icon weiß.png" alt="">
+               
+            </div>  
         </div>    
     </header>
 
@@ -32,6 +36,9 @@
         <div class="poke-container" id="pokeContainer"></div>
         <div  class="load-more-container">
             <button id="loadMoreContainer" onclick="loadMore()" class="load-button d-none">mehr laden</button>
+        </div>
+        <div id="backButtonContainer" class="back-button-container d-none">
+            <Button class="back-button" onclick="backButton()">zurück</Button>
         </div>
     </div>
 
@@ -43,7 +50,7 @@
         <span class="loading-failure" id="loadingFailure"></span>    
     </div> 
 
-    
+
 
     <section class="footer">
         <div class="footer-content widescreen">

@@ -21,8 +21,8 @@ function showPokeCard(pokeData, index) {
 }
 
 function showOverlay(index) {
-    return `
-    	    <div class="overlay-content-box" onclick="noBubbling(event)">
+return `
+            <div class="overlay-content-box" onclick="noBubbling(event)">
                 <div class="overlay-number-name">
                     <span class="poke-number" id="pokeNumber">#${pokemon[index].id}</span>
                     <span class="poke-name" id="pokeName">${formatName(pokemon[index].name)}</span>
@@ -55,7 +55,7 @@ function showOverlay(index) {
                     <img onclick="next('${index}')" class="arrows-right-left" src="./assets/image/arrow-right.png"" alt="">
                 </div>
             </div>
-             `
+            `
 }
 
 function showOverlayGeneral(index) {
@@ -93,34 +93,34 @@ function showOverlayGeneral(index) {
 
 function showOverlayStats(index) {
     return `
-                    <div class="overlay-stats-stats">
-                        <table class="overlay-stats-stats-table">
-                            <tr>
-                                <th class="overlay-stats-general-table-row">HP</th>
-                                <th class="overlay-stats-general-table-row">: ${pokemon[index].hp}</th>
-                            </tr>
-                            <tr>
-                                <th class="overlay-stats-general-table-row">Angriff</th>
-                                <th class="overlay-stats-general-table-row">: ${pokemon[index].attack}</th>
-                            </tr>
-                            <tr>
-                                <th class="overlay-stats-general-table-row">Verteidigung</th>
-                                <th class="overlay-stats-general-table-row">: ${pokemon[index].defense}</th>
-                            </tr>
-                            <tr>
-                                <th class="overlay-stats-general-table-row">Spezial-Attacke</th>
-                                <th class="overlay-stats-general-table-row">: ${pokemon[index].special_attack}</th>
-                            </tr>
-                            <tr>
-                                <th class="overlay-stats-general-table-row">Spezial-Verteidigung</th>
-                                <th class="overlay-stats-general-table-row">: ${pokemon[index].special_defense}</th>
-                            </tr>
-                            <tr>
-                                <th class="overlay-stats-general-table-row">Geschwindigkeit</th>
-                                <th class="overlay-stats-general-table-row">: ${pokemon[index].speed}</th>
-                            </tr>
-                        </table>
-                    </div>
+            <div class="overlay-stats-stats">
+                <table class="overlay-stats-stats-table">
+                    <tr>
+                        <th class="overlay-stats-general-table-row">HP</th>
+                        <th class="overlay-stats-general-table-row">: ${pokemon[index].hp}</th>
+                    </tr>
+                    <tr>
+                        <th class="overlay-stats-general-table-row">Angriff</th>
+                        <th class="overlay-stats-general-table-row">: ${pokemon[index].attack}</th>
+                    </tr>
+                    <tr>
+                        <th class="overlay-stats-general-table-row">Verteidigung</th>
+                        <th class="overlay-stats-general-table-row">: ${pokemon[index].defense}</th>
+                    </tr>
+                    <tr>
+                        <th class="overlay-stats-general-table-row">Spezial-Attacke</th>
+                        <th class="overlay-stats-general-table-row">: ${pokemon[index].special_attack}</th>
+                    </tr>
+                    <tr>
+                        <th class="overlay-stats-general-table-row">Spezial-Verteidigung</th>
+                        <th class="overlay-stats-general-table-row">: ${pokemon[index].special_defense}</th>
+                    </tr>
+                    <tr>
+                        <th class="overlay-stats-general-table-row">Geschwindigkeit</th>
+                        <th class="overlay-stats-general-table-row">: ${pokemon[index].speed}</th>
+                    </tr>
+                </table>
+            </div>
     
     `
 }

@@ -7,6 +7,49 @@ let visiblePokemonCount = 20;
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const BASE_URL_SPECIES = "https://pokeapi.co/api/v2/pokemon-species/"
 
+window.onload = function () {
+    pokeSearch();
+}
+
+function pokeSearch() {
+    const searchInput = document.getElementById('searchField');
+    const value = searchInput.value;
+    search(value);    
+}
+
+function search(value) {
+    if (value == "") {
+        pokemon = []; 
+        document.getElementById('pokeContainer').innerHTML = ""
+        document.getElementById('backButtonContainer').classList.add('d-none');        
+        init();
+        return
+    }   
+    const pokemonResult = pokemon.filter(result => {
+        return result.name.toLowerCase().includes(value.toLowerCase()) || result.id == value;     
+    });    
+    renderSearchResults(pokemonResult);   
+}
+
+function renderSearchResults(pokemonResult) {
+    let pokecard = document.getElementById("pokeContainer");
+    pokecard.innerHTML = ""; 
+    pokemon = pokemonResult;  
+    for (let index = 0; index < pokemon.length; index++) {
+        pokecard.innerHTML += showPokeCard(pokemon[index], index);
+    }    
+    document.getElementById('loadMoreContainer').classList.add('d-none');
+    document.getElementById('backButtonContainer').classList.remove('d-none');
+}
+
+function backButton() {
+    pokemon = [];
+    document.getElementById("pokeContainer").innerHTML = "";
+    document.getElementById('searchField').value = "";
+    init();
+    document.getElementById('backButtonContainer').classList.add('d-none');
+}
+
 async function init() {
     try{
     OverlaySpinnerOn();
@@ -23,9 +66,8 @@ async function init() {
     } 
 }
 
-
 async function fetchPokeDataComplete() {    
-    let responseSpecies = await fetch(`${BASE_URL}?limit=1000&offset=${offset}`);
+    let responseSpecies = await fetch(`${BASE_URL}?limit=100&offset=${offset}`);
     let responseAsJsonSpecies = await responseSpecies.json();        
     for (let index = offset; index < responseAsJsonSpecies.results.length + offset; index++) {
         await renderPokedex(index);
@@ -149,7 +191,6 @@ function loadMore() {
         renderNextPokemonList(); 
     }
 }
-
 function LoadMoreOn () {
     let spinner = document.getElementById('loadMoreContainer');
     setTimeout(function() {
@@ -180,14 +221,11 @@ function toggleOverlay() {
 
 async function next(currentIndex) {
     currentIndex = Number(currentIndex);  
-    currentIndex = currentIndex + 1;
-    console.log(currentIndex);
-    
+    currentIndex = (currentIndex + 1) % pokemon.length;;
     if (currentIndex + 1 > visiblePokemonCount) {
         try {
             await loadMore();
-        } catch (error) {
-            console.log(error);            
+        } catch (error) {        
         }   
         setTimeout(function() {
             renderOverlay(currentIndex);;
@@ -204,5 +242,5 @@ async function previous(currentIndex) {
     }
 }
 
+console.log(pokemon);
 
-console.log(pokemon); 
