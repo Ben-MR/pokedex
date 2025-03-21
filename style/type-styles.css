@@ -1,5 +1,5 @@
 .grass {
-    background-image: url('/assets/image/Battrio_Grass_type.png');
+    background-image: url('../assets/image/Battrio_Grass_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -8,7 +8,7 @@
 }
 
 .poison {
-    background-image: url('/assets/image/Battrio_Poison_type.png');
+    background-image: url('../assets/image/Battrio_Poison_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -17,7 +17,7 @@
 }
 
 .fire {
-    background-image: url('/assets/image/Battrio_Fire_type.png');
+    background-image: url('../assets/image/Battrio_Fire_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -26,7 +26,7 @@
 }
 
 .water {
-    background-image: url('/assets/image/Battrio_Water_type.png');
+    background-image: url('../assets/image/Battrio_Water_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -35,7 +35,7 @@
 }
 
 .bug {
-    background-image: url('/assets/image/Battrio_Bug_type.png');
+    background-image: url('../assets/image/Battrio_Bug_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -44,7 +44,7 @@
 }
 
 .flying {
-    background-image: url('/assets/image/Battrio_Flying_type.png');
+    background-image: url('../assets/image/Battrio_Flying_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -53,7 +53,7 @@
 }
 
 .normal {
-    background-image: url('/assets/image/Battrio_Normal_type.png');
+    background-image: url('../assets/image/Battrio_Normal_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -62,7 +62,7 @@
 }
 
 .ground {
-    background-image: url('/assets/image/Battrio_Ground_type.png');
+    background-image: url('../assets/image/Battrio_Ground_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -71,7 +71,7 @@
 }
 
 .electric {
-    background-image: url('/assets/image/Battrio_Electric_type.png');
+    background-image: url('../assets/image/Battrio_Electric_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -80,7 +80,7 @@
 }
 
 .fairy {
-    background-image: url('/assets/image/Fairy_icon_HOME3.png');
+    background-image: url('../assets/image/Fairy_icon_HOME3.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -89,7 +89,7 @@
 }
 
 .fighting {
-    background-image: url('/assets/image/Battrio_Fighting_type.png');
+    background-image: url('../assets/image/Battrio_Fighting_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -98,7 +98,7 @@
 }
 
 .psychic {
-    background-image: url('/assets/image/Battrio_Psychic_type.png');
+    background-image: url('../assets/image/Battrio_Psychic_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -107,7 +107,7 @@
 }
 
 .dragon {
-    background-image: url('/assets/image/Battrio_Dragon_type.png');
+    background-image: url('../assets/image/Battrio_Dragon_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -116,7 +116,7 @@
 }
 
 .ghost {
-    background-image: url('/assets/image/Battrio_Ghost_type.png');
+    background-image: url('../assets/image/Battrio_Ghost_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -125,7 +125,7 @@
 }
 
 .dark {
-    background-image: url('/assets/image/Battrio_Dark_type.png');
+    background-image: url('../assets/image/Battrio_Dark_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -134,7 +134,7 @@
 }
 
 .rock {
-    background-image: url('/assets/image/Battrio_Rock_type.png');
+    background-image: url('../assets/image/Battrio_Rock_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -143,7 +143,7 @@
 }
 
 .ice {
-    background-image: url('/assets/image/Battrio_Ice_type.png');
+    background-image: url('../assets/image/Battrio_Ice_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;
@@ -152,7 +152,7 @@
 }
 
 .steel {
-    background-image: url('/assets/image/Battrio_Steel_type.png');
+    background-image: url('../assets/image/Battrio_Steel_type.png');
     background-size: contain;
     background-repeat:no-repeat;
     height: 30px;

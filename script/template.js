@@ -36,19 +36,20 @@ return `
                     <div class="${pokemon[index].type2}"></div>             
                 </div>
                 <div id="overlayStatsContainer" class="overlay-stats-container">
-                    <div class="overlay-stats-categories">
-                        <div id="categorieGeneral" class="overlay-stats-categories-name active-tab">
-                            <span onclick="renderGeneral('${index}')">Allgemein</span>
-                        </div>
-                        <div class="overlay-stats-categories-border"></div>
-                        <div id="categorieStats" class="overlay-stats-categories-name">
-                            <span onclick="renderStats('${index}')">Statistiken</span>
-                        </div>  
-                        <div class="overlay-stats-categories-border"></div>       
-                        <div id="categorieEvolution" class="overlay-stats-categories-name">
-                            <span onclick="renderEvolution('${index}')">Evolution</span>
-                        </div>
+                    <div id="overlayStatsContainer" class="overlay-stats-container">
+                <div class="overlay-stats-categories">
+                    <div id="categorieGeneral" class="overlay-stats-categories-name active-tab">
+                        <span onclick="renderStats('${index}', 'general')">Allgemein</span>
                     </div>
+                    <div class="overlay-stats-categories-border"></div>
+                    <div id="categorieStats" class="overlay-stats-categories-name">
+                        <span onclick="renderStats('${index}', 'stats')">Statistiken</span>
+                    </div>  
+                    <div class="overlay-stats-categories-border"></div>       
+                    <div id="categorieEvolution" class="overlay-stats-categories-name">
+                        <span onclick="renderStats('${index}', 'evolution'), renderOverlayEvolution('${index}')">Evolution</span>
+                    </div>
+                </div>
                 <div id="overlayStats" class="overlay-stats"></div>
                 <div class="container-arrows-right-left">
                     <img onclick="previous('${index}')" class="arrows-right-left" src="./assets/image/arrow-left.png" alt="">
@@ -97,27 +98,27 @@ function showOverlayStats(index) {
                 <table class="overlay-stats-stats-table">
                     <tr>
                         <th class="overlay-stats-general-table-row">HP</th>
-                        <th class="overlay-stats-general-table-row">: ${pokemon[index].hp}</th>
+                        <th>:<progress class="progress-bar" value="${pokemon[index].hp}" max="255" style="--value: ${pokemon[index].hp}; --max: 255;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Angriff</th>
-                        <th class="overlay-stats-general-table-row">: ${pokemon[index].attack}</th>
+                        <th>:<progress class="progress-bar" value="${pokemon[index].attack}" max="190" style="--value: ${pokemon[index].attack}; --max: 190;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Verteidigung</th>
-                        <th class="overlay-stats-general-table-row">: ${pokemon[index].defense}</th>
+                        <th>:<progress class="progress-bar" value="${pokemon[index].defense}" max="250" style="--value: ${pokemon[index].defense}; --max: 250;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Spezial-Attacke</th>
-                        <th class="overlay-stats-general-table-row">: ${pokemon[index].special_attack}</th>
+                        <th>:<progress class="progress-bar" value="${pokemon[index].special_attack}" max="194" style="--value: ${pokemon[index].special_attack}; --max: 194;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Spezial-Verteidigung</th>
-                        <th class="overlay-stats-general-table-row">: ${pokemon[index].special_defense}</th>
+                        <th>:<progress class="progress-bar" value="${pokemon[index].special_defense}" max="250" style="--value: ${pokemon[index].special_defense}; --max: 250;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Geschwindigkeit</th>
-                        <th class="overlay-stats-general-table-row">: ${pokemon[index].speed}</th>
+                        <th>:<progress class="progress-bar" value="${pokemon[index].speed}" max="200" style="--value: ${pokemon[index].speed}; --max: 200;"></progress></th>
                     </tr>
                 </table>
             </div>
@@ -125,14 +126,18 @@ function showOverlayStats(index) {
     `
 }
 
-function showOverlayEvolution(index) {
+function showOverlayEvolution(evolution1, evolution2, evolution3) {
     return `
             <div class="overlay-evolution">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon[index].id}.png" alt="">
+                <img class="evolution-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolution1}.png" alt="">
+                ${evolution3 ? `
                 <img class="overlay-evolution-arrow" src="./assets/image/arrow-right.png" alt="">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon[index].id + 1}.png" alt="">
+                <img class="evolution-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolution2}.png" alt="">
+                ` : ''}
+                ${evolution3 ? `
                 <img class="overlay-evolution-arrow" src="./assets/image/arrow-right.png" alt="">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon[index].id + 2}.png" alt="">
+                <img class="evolution-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolution3}.png" alt="">}
+                ` : ''}
             </div>        
             `
 }

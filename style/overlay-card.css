@@ -16,13 +16,19 @@
 
 .overlaypicture-box {
     text-align: center;
+    position: relative;    
+    background-image: url('../assets/image/pokeball-transparent-white.svg');
+    background-position: 150% 150%;
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-size: 54%;
 }
 
 .poke-image-overlay {
     margin-top: 10px;
     height: 250px;
-    width: 280px;
-    
+    width: 280px;  
+    z-index: 1000;  
 }
 
 .overlay-number-name {
@@ -94,14 +100,13 @@
 
 .overlay-stats-general {
     display: flex;
-    justify-content: center;
     align-items: baseline;
     color: aliceblue;
     text-align: left;
 }
 
 .overlay-stats-general-table {
-    margin-top: 20px;    
+    margin: 20px 0 0 20px;    
 }
 
 .overlay-stats-general-table-row {
@@ -117,7 +122,7 @@
 }
 
 .overlay-stats-stats-table {
-    margin: 20px 0 0 30px ;    
+    margin: 20px 0 0 20px ;    
 }
 
 .container-arrows-right-left{
@@ -145,6 +150,25 @@
     width: 30px;
 }
 
+.progress-bar {
+    appearance: none; 
+    width: 150px;
+    height: 10px;
+    border-radius: 15px;
+    margin-left: 5px;
+    background: rgb(247, 244, 244); 
+}
+
+.progress-bar::-webkit-progress-value {
+    background: linear-gradient(90deg, #ff0000, #ff9900); 
+    border-radius: 15px;
+}
+
+.progress-bar::-moz-progress-bar {
+    background: linear-gradient(90deg, #ff0000, #ff9900);
+    border-radius: 15px;
+}
+
 @media (max-width: 400px) {
     .overlay-content-box {
         width: 270px;
@@ -155,4 +179,30 @@
         width: 200px;
         height: auto;
     }
+
+    .overlay-stats {
+        height: 220px;
+    }
+
+    .overlay-stats-general-table-row {
+        font-weight: normal;
+        font-size: 14px;
+    }
+
+    .evolution-image{
+        width: 75px;
+        height: auto;
+    }
+
+    .progress-bar {
+        width: 80px;
+        margin-left: 5px;        
+    }
+
+    .arrows-right-left {
+        width: 30px;
+        height: auto;
+        cursor: pointer;
+    }
 }
+
