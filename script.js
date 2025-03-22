@@ -73,18 +73,21 @@ function backButton() {
 }
 
 async function fetchPokeDataComplete() {    
-    let responseSpecies = await fetch(`${BASE_URL}?limit=200&offset=${offset}`);
+    let responseSpecies = await fetch(`${BASE_URL}?limit=20&offset=${offset}`);
     let responseAsJsonSpecies = await responseSpecies.json();        
     for (let index = offset; index < responseAsJsonSpecies.results.length + offset; index++) {        
         await renderPokedex(index);
-        await renderOverlayGeneral (index);
-        await renderOverlayStats(index);
+        // renderOverlayGeneral (index);
+        // renderOverlayStats(index);
     }
 }
 
 async function renderPokedex(index) {
-    let pokecard = document.getElementById("pokeContainer");     
-    let {pokeData, pokeData2} = await fetchData(index);
+    let pokecard = document.getElementById("pokeContainer");  
+    let response = await fetch(BASE_URL_SPECIES + (offset + index - offset + 1)); 
+    let pokeData = await response.json();
+    let response2 = await fetch(BASE_URL + (offset + index - offset + 1)); 
+    let pokeData2 = await response2.json();  
     pokemon.push(
         {
             id : pokeData.id,
@@ -92,47 +95,61 @@ async function renderPokedex(index) {
             type1 : pokeData2.types[0].type.name,
             type2: pokeData2.types.length > 1 ? pokeData2.types[1].type.name : null,
             backgroundcolor: pokeData.color.name,
-            evolutionChain : pokeData.evolution_chain.url
+            evolutionChain : pokeData.evolution_chain.url,
+            egg1: pokeData.egg_groups[0].name,
+            egg2: pokeData.egg_groups.length > 1 ? pokeData.egg_groups[1].name :null,
+            height: pokeData2.height,
+            weight: pokeData2.weight,
+            ability1: pokeData2.abilities[0].ability.name,
+            ability2: pokeData2.abilities.length >1 ? pokeData2.abilities[1].ability.name :null,
+            ability3: pokeData2.abilities.length >2 ? pokeData2.abilities[2].ability.name :null,
+            base_experience: pokeData2.base_experience,
+            hp: pokeData2.stats[0].base_stat,
+            attack: pokeData2.stats[1].base_stat,
+            defense: pokeData2.stats[2].base_stat,
+            special_attack: pokeData2.stats[3].base_stat,
+            special_defense: pokeData2.stats[4].base_stat,
+            speed: pokeData2.stats[5].base_stat,
             })
         if (index < offset + 20) {
                 setTimeout(() => pokecard.innerHTML += showPokeCard(pokeData, index), 500);}   
 }
 
-async function renderOverlayGeneral(index) {       
-    let {pokeData, pokeData2} = await fetchData(index);
-    let general = {
-        egg1: pokeData.egg_groups[0].name,
-        egg2: pokeData.egg_groups.length > 1 ? pokeData.egg_groups[1].name :null,
-        height: pokeData2.height,
-        weight: pokeData2.weight,
-        ability1: pokeData2.abilities[0].ability.name,
-        ability2: pokeData2.abilities.length >1 ? pokeData2.abilities[1].ability.name :null,
-        ability3: pokeData2.abilities.length >2 ? pokeData2.abilities[2].ability.name :null,
-        base_experience: pokeData2.base_experience
-    }
-    Object.assign(pokemon[index], general);    
-}   
+// async function renderOverlayGeneral(index) {       
+//     let {pokeData, pokeData2} = await fetchData(index);
+//     let general = {
+//         egg1: pokeData.egg_groups[0].name,
+//         egg2: pokeData.egg_groups.length > 1 ? pokeData.egg_groups[1].name :null,
+//         height: pokeData2.height,
+//         weight: pokeData2.weight,
+//         ability1: pokeData2.abilities[0].ability.name,
+//         ability2: pokeData2.abilities.length >1 ? pokeData2.abilities[1].ability.name :null,
+//         ability3: pokeData2.abilities.length >2 ? pokeData2.abilities[2].ability.name :null,
+//         base_experience: pokeData2.base_experience
+//     }
+//     Object.assign(pokemon[index], general);    
+// }   
 
-async function renderOverlayStats(index) {
-    let {pokeData, pokeData2} = await fetchData(index);    
-    let stats = {
-        hp: pokeData2.stats[0].base_stat,
-        attack: pokeData2.stats[1].base_stat,
-        defense: pokeData2.stats[2].base_stat,
-        special_attack: pokeData2.stats[3].base_stat,
-        special_defense: pokeData2.stats[4].base_stat,
-        speed: pokeData2.stats[5].base_stat,
-    }
-    Object.assign(pokemon[index], stats);      
-}   
+// async function renderOverlayStats(index) {
+//     let {pokeData, pokeData2} = await fetchData(index);    
+//     let stats = {
+//         hp: pokeData2.stats[0].base_stat,
+//         attack: pokeData2.stats[1].base_stat,
+//         defense: pokeData2.stats[2].base_stat,
+//         special_attack: pokeData2.stats[3].base_stat,
+//         special_defense: pokeData2.stats[4].base_stat,
+//         speed: pokeData2.stats[5].base_stat,
+//     }
+//     Object.assign(pokemon[index], stats);      
+// }   
 
-async function fetchData(index) {
-    let response = await fetch(BASE_URL_SPECIES + (offset + index - offset + 1)); 
-    let pokeData = await response.json();
-    let response2 = await fetch(BASE_URL + (offset + index - offset + 1)); 
-    let pokeData2 = await response2.json();  
-    return { pokeData, pokeData2 };
-}
+// async function fetchData(index) {
+//     let response = await fetch(BASE_URL_SPECIES + (offset + index - offset + 1)); 
+//     let pokeData = await response.json();
+//     let response2 = await fetch(BASE_URL + (offset + index - offset + 1)); 
+//     let pokeData2 = await response2.json();  
+//     return { pokeData, pokeData2 };
+// }
 
 async function renderStats(index, type) {
     let pokecard = document.getElementById("overlayStats");  
@@ -144,7 +161,7 @@ async function renderStats(index, type) {
         pokecard.innerHTML = showOverlayStats(index);
         setActiveTab("categorieStats");
     }if (type === 'evolution'){
-        pokecard.innerHTML = showOverlayGeneral(index);
+        pokecard.innerHTML = showOverlayEvolution(index);
         setActiveTab("categorieEvolution");
     }
 }
@@ -161,7 +178,7 @@ function renderOverlay(index) {
     let pokecard = document.getElementById("overlayStats");  
     pokecard.innerHTML = showOverlayGeneral(index);
     document.body.classList.add("no-scroll");
-}
+}   
 
 function formatName(inputName) {
     let toFixed = inputName.charAt(0).toUpperCase() + inputName.slice(1);
@@ -183,10 +200,8 @@ function renderNextPokemonList() {
 }
 
 function loadMore() {
-    if (visiblePokemonCount < pokemon.length) {
-        visiblePokemonCount += 20; 
-        renderNextPokemonList(); 
-    }
+    offset = offset + 20;
+    fetchPokeDataComplete();   
 }
 
 function LoadMoreOn () {
@@ -228,10 +243,8 @@ async function next(currentIndex) {
 
 async function previous(currentIndex) {
     currentIndex = Number(currentIndex);  
-    if (currentIndex != 0) {
-        currentIndex = (currentIndex - 1) % pokemon.length;
-        await renderOverlay(currentIndex);
-    }
+    currentIndex = (currentIndex - 1 + pokemon.length) % pokemon.length;
+    await renderOverlay(currentIndex);
 }
 
 function renderOverlayEvolution(index){

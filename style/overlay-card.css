@@ -132,11 +132,26 @@
     margin: 10px 0 10px 0;
 }
 
-.arrows-right-left {
+.arrows-right {
     width: 60px;
     height: auto;
     cursor: pointer;
 }
+
+.arrows-left {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+}
+
+.previousButton {
+    -webkit-mask-image: url('arrow-left.png');
+    mask-image: url('arrow-left.png');
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+}
+
 
 .overlay-evolution {
     display: flex;
@@ -199,10 +214,16 @@
         margin-left: 5px;        
     }
 
-    .arrows-right-left {
+    .arrows-right {
         width: 30px;
         height: auto;
-        cursor: pointer;
     }
+
+    .arrows-left {
+        width: 30px;
+        height: auto;
+    }
+
+
 }
 

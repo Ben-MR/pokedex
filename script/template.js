@@ -52,8 +52,8 @@ return `
                 </div>
                 <div id="overlayStats" class="overlay-stats"></div>
                 <div class="container-arrows-right-left">
-                    <img onclick="previous('${index}')" class="arrows-right-left" src="./assets/image/arrow-left.png" alt="">
-                    <img onclick="next('${index}')" class="arrows-right-left" src="./assets/image/arrow-right.png"" alt="">
+                    <img id="previousButton" onclick="previous('${index}')" class="arrows-left" src="./assets/image/arrow-left.png" alt="">
+                    <img onclick="next('${index}')" class="arrows-right" src="./assets/image/arrow-right.png"" alt="">
                 </div>
             </div>
             `
@@ -130,7 +130,7 @@ function showOverlayEvolution(evolution1, evolution2, evolution3) {
     return `
             <div class="overlay-evolution">
                 <img class="evolution-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolution1}.png" alt="">
-                ${evolution3 ? `
+                ${evolution2 ? `
                 <img class="overlay-evolution-arrow" src="./assets/image/arrow-right.png" alt="">
                 <img class="evolution-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolution2}.png" alt="">
                 ` : ''}
