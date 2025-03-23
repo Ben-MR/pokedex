@@ -9,12 +9,14 @@ const BASE_URL_SPECIES = "https://pokeapi.co/api/v2/pokemon-species/"
 
 window.onload = function () {
     pokeSearch();
+    
 }
 
 async function init() {
     try{
     reStart()
     OverlaySpinner();
+    
     await fetchPokeDataComplete();    
     OverlaySpinner();
     LoadMoreOn ();
@@ -77,79 +79,8 @@ async function fetchPokeDataComplete() {
     let responseAsJsonSpecies = await responseSpecies.json();        
     for (let index = offset; index < responseAsJsonSpecies.results.length + offset; index++) {        
         await renderPokedex(index);
-        // renderOverlayGeneral (index);
-        // renderOverlayStats(index);
     }
 }
-
-async function renderPokedex(index) {
-    let pokecard = document.getElementById("pokeContainer");  
-    let response = await fetch(BASE_URL_SPECIES + (offset + index - offset + 1)); 
-    let pokeData = await response.json();
-    let response2 = await fetch(BASE_URL + (offset + index - offset + 1)); 
-    let pokeData2 = await response2.json();  
-    pokemon.push(
-        {
-            id : pokeData.id,
-            name : pokeData.names[5].name,
-            type1 : pokeData2.types[0].type.name,
-            type2: pokeData2.types.length > 1 ? pokeData2.types[1].type.name : null,
-            backgroundcolor: pokeData.color.name,
-            evolutionChain : pokeData.evolution_chain.url,
-            egg1: pokeData.egg_groups[0].name,
-            egg2: pokeData.egg_groups.length > 1 ? pokeData.egg_groups[1].name :null,
-            height: pokeData2.height,
-            weight: pokeData2.weight,
-            ability1: pokeData2.abilities[0].ability.name,
-            ability2: pokeData2.abilities.length >1 ? pokeData2.abilities[1].ability.name :null,
-            ability3: pokeData2.abilities.length >2 ? pokeData2.abilities[2].ability.name :null,
-            base_experience: pokeData2.base_experience,
-            hp: pokeData2.stats[0].base_stat,
-            attack: pokeData2.stats[1].base_stat,
-            defense: pokeData2.stats[2].base_stat,
-            special_attack: pokeData2.stats[3].base_stat,
-            special_defense: pokeData2.stats[4].base_stat,
-            speed: pokeData2.stats[5].base_stat,
-            })
-        if (index < offset + 20) {
-                setTimeout(() => pokecard.innerHTML += showPokeCard(pokeData, index), 500);}   
-}
-
-// async function renderOverlayGeneral(index) {       
-//     let {pokeData, pokeData2} = await fetchData(index);
-//     let general = {
-//         egg1: pokeData.egg_groups[0].name,
-//         egg2: pokeData.egg_groups.length > 1 ? pokeData.egg_groups[1].name :null,
-//         height: pokeData2.height,
-//         weight: pokeData2.weight,
-//         ability1: pokeData2.abilities[0].ability.name,
-//         ability2: pokeData2.abilities.length >1 ? pokeData2.abilities[1].ability.name :null,
-//         ability3: pokeData2.abilities.length >2 ? pokeData2.abilities[2].ability.name :null,
-//         base_experience: pokeData2.base_experience
-//     }
-//     Object.assign(pokemon[index], general);    
-// }   
-
-// async function renderOverlayStats(index) {
-//     let {pokeData, pokeData2} = await fetchData(index);    
-//     let stats = {
-//         hp: pokeData2.stats[0].base_stat,
-//         attack: pokeData2.stats[1].base_stat,
-//         defense: pokeData2.stats[2].base_stat,
-//         special_attack: pokeData2.stats[3].base_stat,
-//         special_defense: pokeData2.stats[4].base_stat,
-//         speed: pokeData2.stats[5].base_stat,
-//     }
-//     Object.assign(pokemon[index], stats);      
-// }   
-
-// async function fetchData(index) {
-//     let response = await fetch(BASE_URL_SPECIES + (offset + index - offset + 1)); 
-//     let pokeData = await response.json();
-//     let response2 = await fetch(BASE_URL + (offset + index - offset + 1)); 
-//     let pokeData2 = await response2.json();  
-//     return { pokeData, pokeData2 };
-// }
 
 async function renderStats(index, type) {
     let pokecard = document.getElementById("overlayStats");  
@@ -191,17 +122,11 @@ function formatNumbers(inputNumber) {
     return replace;
 }
 
-function renderNextPokemonList() {
-    let pokecard = document.getElementById("pokeContainer");
-    pokecard.innerHTML = ""; 
-    for (let i = 0; i < visiblePokemonCount; i++) {
-        pokecard.innerHTML += showPokeCard(pokemon[i], i);
-    }
-}
-
-function loadMore() {
+async function loadMore() {
     offset = offset + 20;
-    fetchPokeDataComplete();   
+    OverlaySpinner();
+    await fetchPokeDataComplete();   
+    OverlaySpinner();
 }
 
 function LoadMoreOn () {
