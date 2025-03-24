@@ -153,6 +153,7 @@
     justify-content: center;
     z-index: 100;  
     cursor: pointer;
+    margin-bottom: 40px;
 }
 
 .back-button {
@@ -162,6 +163,7 @@
     background-color: rgb(70, 131, 149);
     color: aliceblue;
     font-size: 18px;
+    z-index: 2;
 }
 
 .no-result-container {

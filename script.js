@@ -55,8 +55,9 @@ function search(value) {
 }
 
 function noResult() {
-    let noResult = document.getElementById('contentMiddle');
+    let noResult = document.getElementById('pokeContainer');
     noResult.innerHTML = showNoResult();
+    document.getElementById('loadMoreContainer').classList.add('d-none');
 }
 
 function renderSearchResults() {
@@ -193,24 +194,15 @@ async function previous(currentIndex) {
 function renderOverlayEvolution(index) {
     let pokecard = document.getElementById("overlayStats");
     pokecard.innerHTML = "";
-
     let data = pokemonSearch.length > 0 ? pokemonSearch : pokemon;
     let selectedPokemon = data[index];
-
-    // Finde alle Pokémon mit der gleichen Evolution-Chain
     let evolutionPokemon = pokemon.filter(p => p.evolutionChain === selectedPokemon.evolutionChain);
-
-    // Falls nur ein Pokémon gefunden wird, trotzdem die ganze Evolution anzeigen
     if (evolutionPokemon.length === 1) {
         evolutionPokemon = pokemon.filter(p => p.evolutionChain.includes(selectedPokemon.evolutionChain));
     }
-
-    // Hole die IDs für die Darstellung
     let evolution1 = evolutionPokemon[0]?.id || null;
     let evolution2 = evolutionPokemon[1]?.id || null;
     let evolution3 = evolutionPokemon[2]?.id || null;
-
-    // Render die Evolution
     pokecard.innerHTML = showOverlayEvolution(evolution1, evolution2, evolution3);
     setActiveTab("categorieEvolution");
 }

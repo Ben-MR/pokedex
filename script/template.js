@@ -149,7 +149,7 @@ function showNoResult() {
     return `
             <div class="no-result-container">
                 <span class="no-results-text">Leider habe ich nichts gefunden</span>
-                <button  class="back-button" onclick="siteReload()">Zurück</button>  
+                <button  class="back-button" onclick="backButton()">Zurück</button>  
             </div>
          `
 }
