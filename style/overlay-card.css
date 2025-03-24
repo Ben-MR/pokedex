@@ -192,7 +192,7 @@
     .poke-image-overlay {
         margin-top: 10px;
         width: 200px;
-        height: auto;
+        height: 180;
     }
 
     .overlay-stats {

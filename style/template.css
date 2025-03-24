@@ -23,7 +23,6 @@ body.no-scroll {
 }
 
 html:has(dialog[open]) {
-    /* remove the main scrollbar when dialog is open */
     overflow: hidden;
   }
 

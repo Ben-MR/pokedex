@@ -1,19 +1,19 @@
 function showPokeCard(pokeData, index) {
+    let data = pokemonSearch.length > 0 ? pokemonSearch : pokemon;
     return `
             <div onclick="renderOverlay('${index}')" id="card-container">    
                 <div class="card-container">
                     <div class="number-name">
-                        <span class="poke-number" id="pokeNumber">#${pokemon[index].id}</span>
-                        <span class="poke-name" id="pokeName">${formatName(pokemon[index].name)}</span>
+                        <span class="poke-number" id="pokeNumber">#${data[index].id}</span>
+                        <span class="poke-name" id="pokeName">${formatName(data[index].name)}</span>
                         <div></div>
                     </div>
-                    <div style="background-color:${pokemon[index].backgroundcolor}" class="container-poke-image">
-                        <img id="pokeImage" class="poke-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokeData.id}.svg" alt="">
+                    <div style="background: linear-gradient(150deg, ${data[index].backgroundcolor}, #ffffff);" class="container-poke-image">
+                        <img loading="lazy"  id="pokeImage" class="poke-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokeData.id}.svg" alt="">
                     </div>
                     <div id="typeContainer-${index}" class="type-container">
-                        <div class="${pokemon[index].type1}"></div>
-                        <div class="${pokemon[index].type2}"></div>
-                       
+                        <div class="${data[index].type1}"></div>
+                        <div class="${data[index].type2}"></div>                       
                     </div>
                 </div>
             </div>  
@@ -21,18 +21,19 @@ function showPokeCard(pokeData, index) {
 }
 
 function showOverlay(index) {
-return `
+    let data = pokemonSearch.length > 0 ? pokemonSearch : pokemon;
+    return `
             <div class="overlay-content-box" onclick="noBubbling(event)">
                 <div class="overlay-number-name">
-                    <span class="poke-number" id="pokeNumber">#${pokemon[index].id}</span>
-                    <span class="poke-name" id="pokeName">${formatName(pokemon[index].name)}</span>
+                    <span class="poke-number" id="pokeNumber">#${data[index].id}</span>
+                    <span class="poke-name" id="pokeName">${formatName(data[index].name)}</span>
                     <div></div>
                 </div>
-                <div style="background-color:${pokemon[index].backgroundcolor}" class="overlaypicture-box">
-                    <img id="pokeImage" class="poke-image-overlay" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon[index].id}.svg" alt="">
+                <div style="background-color:${data[index].backgroundcolor}" class="overlaypicture-box">
+                    <img loading="lazy" id="pokeImage" class="poke-image-overlay" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data[index].id}.svg" alt="">
                 </div>
                 <div id="" class="overlay-type-container">
-                    <div class="${pokemon[index].type1}"></div>
+                    <div class="${data[index].type1}"></div>
                     <div class="${pokemon[index].type2}"></div>             
                 </div>
                 <div id="overlayStatsContainer" class="overlay-stats-container">
@@ -60,32 +61,33 @@ return `
 }
 
 function showOverlayGeneral(index) {
+    let data = pokemonSearch.length > 0 ? pokemonSearch : pokemon;
     return `
             <div class="overlay-stats-general">
                 <table class="overlay-stats-general-table">
                     <tr>
                         <th class="overlay-stats-general-table-row">Größe</th>
-                        <th class="overlay-stats-general-table-row">: ${formatNumbers(pokemon[index].height)}m</th>
+                        <th class="overlay-stats-general-table-row">: ${formatNumbers(data[index].height)}m</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Gewicht</th>
-                        <th class="overlay-stats-general-table-row">: ${formatNumbers(pokemon[index].weight)}kg</th>
+                        <th class="overlay-stats-general-table-row">: ${formatNumbers(data[index].weight)}kg</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Farbe</th>
-                        <th class="overlay-stats-general-table-row">: ${formatName(pokemon[index].backgroundcolor)}</th>
+                        <th class="overlay-stats-general-table-row">: ${formatName(data[index].backgroundcolor)}</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Fähigkeiten</th>
-                        <th class="overlay-stats-general-table-row">: ${formatName(pokemon[index].ability1)}${pokemon[index].ability2 ? `, ${formatName(pokemon[index].ability2)}${pokemon[index].ability3 ? `, ${formatName(pokemon[index].ability3)}` : ""}` : ""}</th>
+                        <th class="overlay-stats-general-table-row">: ${formatName(data[index].ability1)}${data[index].ability2 ? `, ${formatName(data[index].ability2)}${data[index].ability3 ? `, ${formatName(data[index].ability3)}` : ""}` : ""}</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Ei-Gruppe</th>
-                        <th class="overlay-stats-general-table-row">: ${formatName(pokemon[index].egg1)}${pokemon[index].egg2 ? `, ${formatName(pokemon[index].egg2)}` : ""}</th>
+                        <th class="overlay-stats-general-table-row">: ${formatName(data[index].egg1)}${data[index].egg2 ? `, ${formatName(data[index].egg2)}` : ""}</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Basis Erfahrung</th>
-                        <th class="overlay-stats-general-table-row">: ${pokemon[index].base_experience}</th>
+                        <th class="overlay-stats-general-table-row">: ${data[index].base_experience}</th>
                     </tr>
                 </table>
             </div>  
@@ -93,32 +95,33 @@ function showOverlayGeneral(index) {
 }
 
 function showOverlayStats(index) {
+    let data = pokemonSearch.length > 0 ? pokemonSearch : pokemon;
     return `
             <div class="overlay-stats-stats">
                 <table class="overlay-stats-stats-table">
                     <tr>
                         <th class="overlay-stats-general-table-row">HP</th>
-                        <th>:<progress class="progress-bar" value="${pokemon[index].hp}" max="255" style="--value: ${pokemon[index].hp}; --max: 255;"></progress></th>
+                        <th>:<progress class="progress-bar" value="${data[index].hp}" max="255" style="--value: ${data[index].hp}; --max: 255;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Angriff</th>
-                        <th>:<progress class="progress-bar" value="${pokemon[index].attack}" max="190" style="--value: ${pokemon[index].attack}; --max: 190;"></progress></th>
+                        <th>:<progress class="progress-bar" value="${data[index].attack}" max="190" style="--value: ${data[index].attack}; --max: 190;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Verteidigung</th>
-                        <th>:<progress class="progress-bar" value="${pokemon[index].defense}" max="250" style="--value: ${pokemon[index].defense}; --max: 250;"></progress></th>
+                        <th>:<progress class="progress-bar" value="${data[index].defense}" max="250" style="--value: ${data[index].defense}; --max: 250;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Spezial-Attacke</th>
-                        <th>:<progress class="progress-bar" value="${pokemon[index].special_attack}" max="194" style="--value: ${pokemon[index].special_attack}; --max: 194;"></progress></th>
+                        <th>:<progress class="progress-bar" value="${data[index].special_attack}" max="194" style="--value: ${data[index].special_attack}; --max: 194;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Spezial-Verteidigung</th>
-                        <th>:<progress class="progress-bar" value="${pokemon[index].special_defense}" max="250" style="--value: ${pokemon[index].special_defense}; --max: 250;"></progress></th>
+                        <th>:<progress class="progress-bar" value="${data[index].special_defense}" max="250" style="--value: ${data[index].special_defense}; --max: 250;"></progress></th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Geschwindigkeit</th>
-                        <th>:<progress class="progress-bar" value="${pokemon[index].speed}" max="200" style="--value: ${pokemon[index].speed}; --max: 200;"></progress></th>
+                        <th>:<progress class="progress-bar" value="${data[index].speed}" max="200" style="--value: ${data[index].speed}; --max: 200;"></progress></th>
                     </tr>
                 </table>
             </div>
@@ -141,3 +144,13 @@ function showOverlayEvolution(evolution1, evolution2, evolution3) {
             </div>        
             `
 }
+
+function showNoResult() {
+    return `
+            <div class="no-result-container">
+                <span class="no-results-text">Leider habe ich nichts gefunden</span>
+                <button  class="back-button" onclick="siteReload()">Zurück</button>  
+            </div>
+         `
+}
+

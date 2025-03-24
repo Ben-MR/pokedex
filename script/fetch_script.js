@@ -28,5 +28,5 @@ async function renderPokedex(index) {
             speed: pokeData2.stats[5].base_stat,
             })
         if (index < offset + 20) {
-                setTimeout(() => pokecard.innerHTML += showPokeCard(pokeData, index), 500);}   
+                pokecard.innerHTML += showPokeCard(pokeData, index);}   
 }

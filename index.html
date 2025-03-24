@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./style/type-styles.css">
 
     <script src="./script/template.js"></script>
-    <script src="./script.js"></script>
+    
     <script src="./script/fetch_script.js"></script>
 
 </head>
@@ -19,7 +19,7 @@
 <div class="content-body">  
     <header class="header">        
         <div class="header-content widescreen">
-            <div onclick="init()" class="header-content-left">
+            <div onclick="siteReload()" class="header-content-left">
                 <img class="header-image" src="./assets/image/pokeball.svg" alt="">
                 <span class="header-text">Pokedex</span>
             </div>
@@ -29,6 +29,7 @@
             </div>  
         </div>    
     </header>    
+    
 
     <div onclick="toggleOverlay()" id="overlay" class="d-none overlay-box "></div>      
 
@@ -41,7 +42,7 @@
             <Button class="back-button" onclick="backButton()">Zurück</Button>
         </div>
     </div>
-
+   
     <div class="loading-image-container">
         <div id="loadingImageContainer" class="loading-image-container d-none">
         <img class="loading-image" src="./assets/image/pokeball.png" alt="">
@@ -57,4 +58,5 @@
     </section> 
 </div>      
 </body>
+<script src="./script.js"></script>
 </html>

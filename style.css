@@ -164,6 +164,13 @@
     font-size: 18px;
 }
 
+.no-result-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .search-container {
     display: flex;
     flex-direction: row;
@@ -201,6 +208,11 @@ textarea, input {
     padding: 4px 3px 4px 3px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+}
+
+.no-results-text {
+    font-size: 35px;
+    color: aliceblue;
 }
 
 @media (max-width: 450px){
