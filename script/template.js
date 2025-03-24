@@ -6,7 +6,7 @@ function showPokeCard(pokeData, index) {
                     <div class="number-name">
                         <span class="poke-number" id="pokeNumber">#${data[index].id}</span>
                         <span class="poke-name" id="pokeName">${formatName(data[index].name)}</span>
-                        <div></div>
+                    <div></div>
                     </div>
                     <div style="background: linear-gradient(150deg, ${data[index].backgroundcolor}, #ffffff);" class="container-poke-image">
                         <img loading="lazy"  id="pokeImage" class="poke-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokeData.id}.svg" alt="">
@@ -27,7 +27,7 @@ function showOverlay(index) {
                 <div class="overlay-number-name">
                     <span class="poke-number" id="pokeNumber">#${data[index].id}</span>
                     <span class="poke-name" id="pokeName">${formatName(data[index].name)}</span>
-                    <div></div>
+                    <div onclick="toggleOverlay()" class="close-button">X</div>
                 </div>
                 <div style="background-color:${data[index].backgroundcolor}" class="overlaypicture-box">
                     <img loading="lazy" id="pokeImage" class="poke-image-overlay" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data[index].id}.svg" alt="">
@@ -53,8 +53,8 @@ function showOverlay(index) {
                 </div>
                 <div id="overlayStats" class="overlay-stats"></div>
                 <div class="container-arrows-right-left">
-                    <img id="previousButton" onclick="previous('${index}')" class="arrows-left" src="./assets/image/arrow-left.png" alt="">
-                    <img onclick="next('${index}')" class="arrows-right" src="./assets/image/arrow-right.png"" alt="">
+                    <img id="previousButton" onclick="previous('${index}')" class="arrows" src="./assets/image/arrow-left.png" alt="">
+                    <img onclick="next('${index}')" class="arrows" src="./assets/image/arrow-right.png"" alt="">
                 </div>
             </div>
             `
@@ -67,27 +67,33 @@ function showOverlayGeneral(index) {
                 <table class="overlay-stats-general-table">
                     <tr>
                         <th class="overlay-stats-general-table-row">Größe</th>
-                        <th class="overlay-stats-general-table-row">: ${formatNumbers(data[index].height)}m</th>
+                        <th class="overlay-stats-general-table-row">:</th>
+                        <th class="overlay-stats-general-table-row">${formatNumbers(data[index].height)}m</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Gewicht</th>
-                        <th class="overlay-stats-general-table-row">: ${formatNumbers(data[index].weight)}kg</th>
+                        <th class="overlay-stats-general-table-row">:</th>
+                        <th class="overlay-stats-general-table-row">${formatNumbers(data[index].weight)}kg</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Farbe</th>
-                        <th class="overlay-stats-general-table-row">: ${formatName(data[index].backgroundcolor)}</th>
+                        <th class="overlay-stats-general-table-row">:</th>
+                        <th class="overlay-stats-general-table-row">${formatName(data[index].backgroundcolor)}</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Fähigkeiten</th>
-                        <th class="overlay-stats-general-table-row">: ${formatName(data[index].ability1)}${data[index].ability2 ? `, ${formatName(data[index].ability2)}${data[index].ability3 ? `, ${formatName(data[index].ability3)}` : ""}` : ""}</th>
+                        <th class="overlay-stats-general-table-row">:</th>
+                        <th class="overlay-stats-general-table-row">${formatName(data[index].ability1)}${data[index].ability2 ? `, ${formatName(data[index].ability2)}${data[index].ability3 ? `, ${formatName(data[index].ability3)}` : ""}` : ""}</th>
                     </tr>
                     <tr>
                         <th class="overlay-stats-general-table-row">Ei-Gruppe</th>
-                        <th class="overlay-stats-general-table-row">: ${formatName(data[index].egg1)}${data[index].egg2 ? `, ${formatName(data[index].egg2)}` : ""}</th>
+                        <th class="overlay-stats-general-table-row">:</th>
+                        <th class="overlay-stats-general-table-row"> ${formatName(data[index].egg1)}${data[index].egg2 ? `, ${formatName(data[index].egg2)}` : ""}</th>
                     </tr>
                     <tr>
-                        <th class="overlay-stats-general-table-row">Basis Erfahrung</th>
-                        <th class="overlay-stats-general-table-row">: ${data[index].base_experience}</th>
+                        <th class="overlay-stats-general-table-row-left">Basis Erfahrung</th>
+                        <th class="overlay-stats-general-table-row">:</th>
+                        <th class="overlay-stats-general-table-row"> ${data[index].base_experience}</th>
                     </tr>
                 </table>
             </div>  
