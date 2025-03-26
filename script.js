@@ -172,23 +172,24 @@ function toggleOverlay() {
 
 async function next(currentIndex) {
     currentIndex = Number(currentIndex);  
-    currentIndex = (currentIndex + 1) % pokemon.length;;
-    if (currentIndex + 1 > visiblePokemonCount) {
-        try {
-            await loadMore();
-        } catch (error) {        
-        }   
-        setTimeout(function() {
-            renderOverlay(currentIndex);;
-        }, 500)             
-    }
-    await renderOverlay(currentIndex);
+    let container = document.getElementById("overlayContentBox");
+    container.classList.add("slide-out-left");
+    setTimeout(async () => {
+        currentIndex = (currentIndex + 1) % pokemon.length;
+        await renderOverlay(currentIndex);
+        container.classList.remove("slide-out-left"); // Klasse entfernen für nächstes Mal
+    }, 500);
 }
 
 async function previous(currentIndex) {
     currentIndex = Number(currentIndex);  
-    currentIndex = (currentIndex - 1 + pokemon.length) % pokemon.length;
-    await renderOverlay(currentIndex);
+    let container = document.getElementById("overlayContentBox");
+    container.classList.add("slide-out-right");
+    setTimeout(async () => {
+        currentIndex = (currentIndex - 1 + pokemon.length) % pokemon.length;
+        await renderOverlay(currentIndex);
+        container.classList.remove("slide-out-right"); // Klasse entfernen für nächstes Mal
+    }, 500);
 }
 
 function renderOverlayEvolution(index) {

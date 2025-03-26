@@ -23,10 +23,10 @@ function showPokeCard(pokeData, index) {
 function showOverlay(index) {
     let data = pokemonSearch.length > 0 ? pokemonSearch : pokemon;
     return `
-            <div class="overlay-content-box" onclick="noBubbling(event)">
+            <div class="overlay-content-box" id="overlayContentBox" onclick="noBubbling(event)">
                 <div class="overlay-number-name">
                     <span class="poke-number" id="pokeNumber">#${data[index].id}</span>
-                    <span class="poke-name" id="pokeName">${formatName(data[index].name)}</span>
+                    <span class="poke-name-overlay" id="pokeName">${formatName(data[index].name)}</span>
                     <div onclick="toggleOverlay()" class="close-button">X</div>
                 </div>
                 <div style="background-color:${data[index].backgroundcolor}" class="overlaypicture-box">
@@ -54,6 +54,7 @@ function showOverlay(index) {
                 <div id="overlayStats" class="overlay-stats"></div>
                 <div class="container-arrows-right-left">
                     <img id="previousButton" onclick="previous('${index}')" class="arrows" src="./assets/image/arrow-left.png" alt="">
+                    <img onclick="toggleOverlay()" class="close-button-bottom" src="./assets/image/x_with_circle.png" alt="">
                     <img onclick="next('${index}')" class="arrows" src="./assets/image/arrow-right.png"" alt="">
                 </div>
             </div>

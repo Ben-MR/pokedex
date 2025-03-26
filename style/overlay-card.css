@@ -12,6 +12,17 @@
 .overlay-content-box {
     width: 350px;
     border-radius: 15px;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.slide-out-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-out-right {
+    transform: translateX(100%);
+    opacity: 0;
 }
 
 .overlaypicture-box {
@@ -143,8 +154,18 @@
 .container-arrows-right-left{
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
     margin: 10px 0 10px 0;
+}
+
+.close-button-bottom {
+    height: 55px;
+    width: auto;
+}
+
+.close-button-bottom:active {
+    transform: translate(4%, 4%);
 }
 
 .arrows-left-right {
@@ -253,6 +274,11 @@
     .arrows {
         width: 30px;
         height: auto;
+    }
+
+    .close-button-bottom {
+        height: 35px;
+        width: auto;
     }
 }
 
