@@ -1,45 +1,45 @@
 # Pokedex
 
-Eine Webanwendung, die mithilfe der [PokeAPI](https://pokeapi.co/) Daten zu allen Pokémon abruft und visuell ansprechend darstellt.
+A web application that fetches data about all Pokémon from the [PokeAPI](https://pokeapi.co/) and presents it visually.
 
-## Beschreibung
+## Description
 
-Der Pokedex zieht sich über API-Schnittstellen Daten von der PokeAPI und bereitet diese übersichtlich und interaktiv auf. Nutzer können Informationen zu allen Pokémon anzeigen lassen, inklusive Details wie Typ, Fähigkeiten, Statuswerte und mehr.
+The Pokedex retrieves data from the PokeAPI via API calls and displays it in an interactive and user-friendly way. Users can browse information about every Pokémon, including details like type, abilities, stats, and more.
 
-## Technologien
+## Technologies
 
 - HTML  
 - CSS  
 - JavaScript  
 - PokeAPI (REST API)
 
-## Installation & Nutzung
+## Installation & Usage
 
-Da es sich um eine reine Webanwendung handelt, ist keine Installation notwendig.  
-Einfach die Webseite im Browser öffnen:  
+This is a web-based application, so no installation is required.  
+Simply open the webpage in your browser:  
 [https://benjamin-rieck.de/pokedex/index.html](https://benjamin-rieck.de/pokedex/index.html)
 
-## Beispielnutzung
+## How to Use
 
-1. Webseite öffnen  
-2. Durch die Liste der Pokémon scrollen oder gezielt nach einem Pokémon suchen  
-3. Auf ein Pokémon klicken, um detaillierte Informationen zu sehen
+1. Open the website  
+2. Scroll through the list of Pokémon or use the search feature  
+3. Click on a Pokémon to view detailed information
 
-## Lizenz
+## License
 
-Dieses Projekt nutzt Daten der PokeAPI, die unter der [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/) stehen. Die Rechte an den Pokémon und deren Darstellungen liegen bei Nintendo, Game Freak und The Pokémon Company.  
+This project uses data from the PokeAPI, which is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/). The rights to the Pokémon and their designs belong to Nintendo, Game Freak, and The Pokémon Company.
 
-Der Quellcode dieses Projekts steht unter der MIT-Lizenz.  
+The source code of this project is licensed under the MIT License.
 
-## Autor
+## Author
 
 Benjamin Rieck
 
 ## Status
 
-Das Projekt ist final.
+This project is complete.
 
 ## Links
 
-- Live Demo: [https://benjamin-rieck.de/pokedex/index.html](https://benjamin-rieck.de/pokedex/index.html)
+- Live Demo: [https://benjamin-rieck.de/pokedex/index.html](https://benjamin-rieck.de/pokedex/index.html)  
 - PokeAPI: [https://pokeapi.co/](https://pokeapi.co/)
